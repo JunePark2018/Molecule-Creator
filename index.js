@@ -87,9 +87,6 @@ $("canvas").mousemove( function (event) {
     if (clickedAtom != undefined) {
         atoms[clickedAtom.i].x = mouseX + clickedAtom.distX;
         atoms[clickedAtom.i].y = mouseY + clickedAtom.distY;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);        
-        for (let atom of atoms)
-            DrawAtom(atom);
     }
     else if (isCanvasClicked) {
         // Move canvas
@@ -108,5 +105,17 @@ $(document).mouseup( function () {
 
 // How the object moves...
 function Move(obj, x, y) {
-    $(obj).animate()
+    obj.x += (x - obj.x) * 0.05;
+    obj.y += (y - obj.y) * 0.05;
 }
+
+
+// Every step...
+
+setInterval( function () {
+    
+    // Refresh Drawing
+    ctx.clearRect(0, 0, canvas.width, canvas.height);        
+    for (let atom of atoms)
+        DrawAtom(atom);
+}, 20);
