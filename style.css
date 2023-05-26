@@ -21,7 +21,13 @@ canvas {
     gap: 50px;
 }
 
-button {
+.controls > input {
+    font-size: 2rem;
+    width: 200px;
+    text-align: center;
+}
+
+.controls > button {
     color: white;
     background-color: darkgoldenrod;
     font-size: 2rem;
@@ -31,7 +37,7 @@ button {
     border-radius: 20px;
 }
 
-.button-pressed {
+.controls > .button-pressed {
     border: 10px darkgray solid;
     background-color: gray;
 }
